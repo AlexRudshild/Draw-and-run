@@ -135,7 +135,7 @@ public class Drawing : MonoBehaviour
         {
             AddSplinePoint(touchPoint);
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForFixedUpdate();
         }
 
         PlaceMinion();

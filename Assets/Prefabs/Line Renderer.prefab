@@ -255,7 +255,7 @@ MonoBehaviour:
   autoOrient: 1
   updateFrameInterval: 0
   _slices: 1
-  vertexDirection: {x: -1.4151193, y: 4.725477, z: -8.015209}
+  vertexDirection: {x: 7.707462, y: 12.721935, z: -15.686906}
 --- !u!1 &2187865751822037558
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,9 +304,9 @@ MonoBehaviour:
   drawThinckness: 0
   billboardThickness: 1
   isNewlyCreated: 0
-  multithreaded: 0
+  multithreaded: 1
   rebuildOnAwake: 0
-  updateMode: 1
+  updateMode: 0
   triggerGroups: []
   spline:
     points:
