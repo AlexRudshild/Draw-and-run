@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2187865751448703809}
   - component: {fileID: 2187865751448703808}
   m_Layer: 0
-  m_Name: LineCamera
+  m_Name: Line Renderer Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf69cfa06c48dba428c5c4d626d57ab7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  updateMethod: 2
+  updateMethod: 1
   _spline: {fileID: 2187865751822037552}
   _autoUpdate: 1
   _rotationModifier:
@@ -255,7 +255,7 @@ MonoBehaviour:
   autoOrient: 1
   updateFrameInterval: 0
   _slices: 1
-  vertexDirection: {x: 7.707462, y: 12.721935, z: -15.686906}
+  vertexDirection: {x: -7.5414443, y: 11.562018, z: -13.543538}
 --- !u!1 &2187865751822037558
 GameObject:
   m_ObjectHideFlags: 0

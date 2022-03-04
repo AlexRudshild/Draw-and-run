@@ -8,29 +8,24 @@ public class GameManager : MonoBehaviour
     public GameObject DrawText;
     public GameObject FinishText;
 
-    private Move _mover;
-    private Drawing _drawer;
-
     private void OnEnable()
     {
-        if (_drawer == null)
-            _drawer = FindObjectOfType<Drawing>();
-        if (_mover == null)
-            _mover = FindObjectOfType<Move>();
+        MinionsManager.OnMinionsRunOut += WaitForRestart;
 
-        _drawer.OnMInionsRunOut += WaitForRestart;
-        _drawer.OnDrawComplite += StartMove;
+        Drawer.OnDrawComplite += StartMove;
 
-        _mover.OnFinishReach += FinishLevel;
+        PlayerMover.OnFinishReach += FinishLevel;
     }
 
     private void OnDisable()
     {
-        _drawer.OnMInionsRunOut -= WaitForRestart;
-        _drawer.OnDrawComplite -= StartMove;
+        MinionsManager.OnMinionsRunOut -= WaitForRestart;
 
-        _mover.OnFinishReach -= FinishLevel;
+        Drawer.OnDrawComplite -= StartMove;
+
+        PlayerMover.OnFinishReach -= FinishLevel;
     }
+
     private void StartMove()
     {
         DrawText.SetActive(false);
@@ -38,13 +33,16 @@ public class GameManager : MonoBehaviour
 
     private void FinishLevel()
     {
-        FindObjectOfType<Drawing>().enabled = false;
+        FindObjectOfType<Drawer>().enabled = false;
+
+        MinionsManager.OnMinionsRunOut -= WaitForRestart;
+
         FinishText.SetActive(true);
     }
 
     private void WaitForRestart()
     {
-        FindObjectOfType<Drawing>().enabled = false;
+        FindObjectOfType<Drawer>().enabled = false;
         RestartButton.gameObject.SetActive(true);
     }
 

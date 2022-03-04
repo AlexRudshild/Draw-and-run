@@ -4,10 +4,7 @@ using UnityEngine;
 public class Minion : MonoBehaviour
 {
     public delegate void death(Minion minion);
-    public delegate void collect(Transform minion);
-
-    public event death OnMinionDeath;
-    public collect OnMinionCollect;
+    public static event death OnMinionDeath;
 
     public delegate void Animation();
     public static Animation startRuning;
@@ -20,7 +17,6 @@ public class Minion : MonoBehaviour
     [Header("Particles")]
 
     public ParticleSystem DeathPartical;
-    public ParticleSystem PickUpMinion;
 
     private void Start()
     {
@@ -38,24 +34,6 @@ public class Minion : MonoBehaviour
     {
         startRuning -= StartRun;
         startDance -= StartDance;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Gem"))
-        {
-            Destroy(other.gameObject);
-        }
-        else if (other.CompareTag("Minion"))
-        {
-            PickUpMinion.Play();
-            other.gameObject.SetActive(false);
-            OnMinionCollect?.Invoke(other.gameObject.transform);
-        }
-        else
-        {
-            Death();
-        }
     }
 
     private void Update()
@@ -82,7 +60,9 @@ public class Minion : MonoBehaviour
 
         OnMinionDeath?.Invoke(this);
 
-        DeathPartical.gameObject.SetActive(true);
+        var effect = Instantiate(DeathPartical, transform.position, Quaternion.identity).gameObject;
+
+        Destroy(effect, 3);
 
         animator.SetBool("Running", false);
         transform.parent = null;

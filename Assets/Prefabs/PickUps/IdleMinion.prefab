@@ -1001,6 +1001,7 @@ GameObject:
   - component: {fileID: 4357948148926121268}
   - component: {fileID: 7681634719316696910}
   - component: {fileID: 3977059366332293002}
+  - component: {fileID: -1052167626995225078}
   m_Layer: 0
   m_Name: IdleMinion
   m_TagString: Minion
@@ -1051,12 +1052,25 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3977059366332293006}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.31
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &-1052167626995225078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3977059366332293006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fee4c36ee3ec3d49a727b8f28ae4c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PickUpEffect: {fileID: 6537606105175111642, guid: 208a02e941291054fbf0666fc807c37a, type: 3}
 --- !u!1 &3991845722947652588
 GameObject:
   m_ObjectHideFlags: 0

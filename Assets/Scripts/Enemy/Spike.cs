@@ -3,12 +3,9 @@ using UnityEngine;
 
 public class Spike : MonoBehaviour
 {
-    public delegate void Hide();
-    public static Hide hideSpike;
+    public delegate void Toggle();
+    public static Toggle ToggleSpikeState;
 
-
-    public delegate void Show();
-    public static Show showSpike;
 
     private Collider _collider;
 
@@ -23,14 +20,12 @@ public class Spike : MonoBehaviour
 
     private void OnEnable()
     {
-        hideSpike += HideSpike;
-        showSpike += ShowSpike;
+        ToggleSpikeState += ToggleSpike;
     }
 
     private void OnDisable()
     {
-        hideSpike -= HideSpike;
-        showSpike -= ShowSpike;
+        ToggleSpikeState -= ToggleSpike;
     }
 
     private void FixedUpdate()
@@ -46,17 +41,17 @@ public class Spike : MonoBehaviour
         }
     }
 
-    private void HideSpike()
+    private void ToggleSpike()
     {
-        _collider.enabled = false;
+        _collider.enabled = !_collider.enabled;
 
-        TargetPosition = transform.position - transform.up;
-    }
-
-    private void ShowSpike()
-    {
-        _collider.enabled = true;
-
-        TargetPosition = transform.position + transform.up;
+        if (_collider.enabled)
+        {
+            TargetPosition = transform.position + transform.up;
+        }
+        else
+        {
+            TargetPosition = transform.position - transform.up;
+        }
     }
 }

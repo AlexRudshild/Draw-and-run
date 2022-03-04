@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8232603758985294396}
   m_Layer: 0
-  m_Name: Minions
+  m_Name: Minions Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,6 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8232603759067014817}
   - component: {fileID: 8232603759067014816}
+  - component: {fileID: 3215900097805885394}
   - component: {fileID: 8232603759067014819}
   m_Layer: 0
   m_Name: Player
@@ -77,9 +78,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   splineComputer: {fileID: 0}
+--- !u!114 &3215900097805885394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8232603759067014846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647dd49acb3d27c46823edda0dd05f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinionPrefab: {fileID: 6436358341583823988, guid: 1a33f25b76a3e7a4683aa595e2e49e02, type: 3}
   MinionsHandler: {fileID: 8232603758985294396}
   MinionsStartCount: 20
-  MinionPrefab: {fileID: 6436358341583823988, guid: 1a33f25b76a3e7a4683aa595e2e49e02, type: 3}
 --- !u!114 &8232603759067014819
 MonoBehaviour:
   m_ObjectHideFlags: 0
